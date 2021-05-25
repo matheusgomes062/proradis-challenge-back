@@ -1,11 +1,17 @@
 ﻿using System;
 using prmToolkit.NotificationPattern;
+using VaccineAPI5.ValueObjects;
 
 namespace VaccineAPI5.Entities
 {
     public class Patient : Notifiable
     {
-        public Patient(string name, string email, string cpf,
+        protected Patient()
+        {
+
+        }
+
+        public Patient(string name, Email email, string cpf,
             string birthdate, bool comorbidity,
             string address, string district, string state,
             string city)
@@ -35,7 +41,7 @@ namespace VaccineAPI5.Entities
 
         public string Name { get; private set; }
 
-        public string Email { get; private set; }
+        public Email Email { get; private set; }
 
         public string Cpf { get; private set; }
 

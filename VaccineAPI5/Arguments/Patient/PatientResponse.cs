@@ -20,7 +20,7 @@ namespace VaccineAPI5.Domain.Arguments.Patient
             return new PatientResponse() {
                 Id = entity.Id,
                 Name = entity.Name,
-                Email = entity.Email,
+                Email = entity.Email.Endereco,
                 Cpf = entity.Cpf,
                 Birthdate = entity.Birthdate,
                 Comorbidity = entity.Comorbidity

@@ -20,7 +20,7 @@ namespace VaccineAPI5.Services
 
         public AddVaccineResponse AddVaccine(AddVaccineRequest request)
         {
-            Vaccine vaccine = new(request.Name, request.Manufacturer, request.Batch, request.DueDate, request.NumberOfDoses, request.IntervalBetweenDoses);
+            Vaccine vaccine = new Vaccine(request.Name, request.Manufacturer, request.Batch, request.DueDate, request.NumberOfDoses, request.IntervalBetweenDoses);
 
             //if(this.IsInvalid())
             //{
