@@ -2,7 +2,11 @@
 using VaccineAPI5.Arguments.Patient;
 using VaccineAPI5.Domain.Interfaces.Repositories;
 using VaccineAPI5.Interfaces.Services;
+using VaccineAPI5.Entities;
 using VaccineAPI5.ValueObjects;
+using System.Collections.Generic;
+using VaccineAPI5.Domain.Arguments.Patient;
+using System.Linq;
 
 namespace VaccineAPI5.Services
 {
@@ -17,56 +21,20 @@ namespace VaccineAPI5.Services
 
         public AddPatientResponse AddPatient(AddPatientRequest request)
         {
-            if(request == null)
-            {
-                throw new Exception("AddPatientRequest obrigatório");
-            }
+            Patient patient = new(request.Name, request.Email, request.Cpf, request.Birthdate, request.Comorbidity, request.Address, request.District, request.State, request.City);
 
-            if(string.IsNullOrEmpty(request.Name))
-            {
-                throw new Exception("Informe um nome.");
-            }
-            if (IsEmail(request.Email))
-            {
-                throw new Exception("Informe um Email.");
-            }
-            if (IsCpf(request.Cpf))
-            {
-                throw new Exception("Informe um Cpf.");
-            }
-            //if (DateTime(request.Birthdate))
+            //if(this.IsInvalid())
             //{
-            //    throw new Exception("Informe uma data de nascimento.");
+            //    return null;
             //}
-            //if (bool(request.Comorbidity))
-            //{
-            //    throw new Exception("Informe se possui comorbidade.");
-            //}
-            if (string.IsNullOrEmpty(request.District))
-            {
-                throw new Exception("Informe o bairro.");
-            }
-            if (string.IsNullOrEmpty(request.State))
-            {
-                throw new Exception("Informe o Estado.");
-            }
-            if (string.IsNullOrEmpty(request.City))
-            {
-                throw new Exception("Informe a Cidade.");
-            }
+            patient = _repositoryPatient.AddPatient(patient);
 
-            Guid id = _repositoryPatient.AddPatient(request);
-            return new AddPatientResponse() { Id = id, Message = "Operação realizada com sucesso!" };
+            return (AddPatientResponse)patient;
         }
 
-        private bool IsCpf(int cpf)
+        public IEnumerable<PatientResponse> ListPatients()
         {
-            throw new NotImplementedException();
-        }
-
-        private bool IsEmail(Email email)
-        {
-            return false;
+            return _repositoryPatient.ListPatients().ToList().Select(patient => (PatientResponse)patient).ToList();
         }
     }
 }

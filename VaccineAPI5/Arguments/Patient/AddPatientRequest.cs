@@ -8,11 +8,11 @@ namespace VaccineAPI5.Arguments.Patient
     {
         public string Name { get; set; }
 
-        public Email Email { get; set; }
+        public string Email { get; set; }
 
-        public int Cpf { get; set; }
+        public string Cpf { get; set; }
 
-        public DateTime Birthdate { get; set; }
+        public string Birthdate { get; set; }
 
         public bool Comorbidity { get; set; }
 

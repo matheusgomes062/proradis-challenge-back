@@ -1,6 +1,6 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using VaccineAPI5.Arguments.Patient;
-using VaccineAPI5.ValueObjects;
+using VaccineAPI5.Domain.Arguments.Patient;
 
 namespace VaccineAPI5.Interfaces.Services
 {
@@ -8,5 +8,7 @@ namespace VaccineAPI5.Interfaces.Services
     {
         AddPatientResponse AddPatient(AddPatientRequest request);
     }
+
+    IEnumerable<PatientResponse> ListPatients();
 }
  

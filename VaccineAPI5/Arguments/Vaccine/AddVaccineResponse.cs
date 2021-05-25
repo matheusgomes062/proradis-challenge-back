@@ -8,5 +8,14 @@ namespace VaccineAPI5.Arguments.Vaccine
         public Guid Id { get; set; }
 
         public string Message { get; set; }
+
+        public static explicit operator AddVaccineResponse(Entities.Vaccine entity)
+        {
+            return new AddVaccineResponse()
+            {
+                Id = entity.Id,
+                Message = "Operação realizada com sucesso!"
+            };
+        }
     }
 }

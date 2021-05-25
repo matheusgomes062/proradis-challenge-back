@@ -11,7 +11,7 @@ namespace VaccineAPI5.Arguments.Vaccine
 
         public string Batch { get; set; }
 
-        public DateTime DueDate { get; set; }
+        public string DueDate { get; set; }
 
         public int NumberOfDoses { get; set; }
 

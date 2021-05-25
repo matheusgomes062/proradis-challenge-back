@@ -1,5 +1,5 @@
 ﻿using System;
-namespace VaccineAPI5.Models
+namespace VaccineAPI5.Entities
 {
     public class DoseControl
     {
@@ -9,7 +9,7 @@ namespace VaccineAPI5.Models
 
         public Vaccine Vaccine { get; set; }
 
-        public DateTime ApplicationDate { get; set; }
+        public string ApplicationDate { get; set; }
 
         public int DoseTaken { get; set; }
     }

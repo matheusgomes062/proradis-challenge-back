@@ -18,5 +18,21 @@
     <Folder Include="Arguments\Patient\" />
     <Folder Include="Arguments\Vaccine\" />
     <Folder Include="Services\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="prmToolkit.NotificationPattern" Version="1.1.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Message.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Message.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\Message.Designer.cs">
+      <DependentUpon>Message.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
