@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using VaccineAPI5.Arguments.Vaccine;
+using VaccineAPI5.Domain.Arguments.Vaccine;
 using VaccineAPI5.Domain.Interfaces.Repositories;
 using VaccineAPI5.Entities;
 using VaccineAPI5.Interfaces.Services;
@@ -26,6 +29,16 @@ namespace VaccineAPI5.Services
             vaccine = _repositoryVaccine.AddVaccine(vaccine);
 
             return (AddVaccineResponse)vaccine;
+        }
+
+        public VaccineResponse GetVaccineById(Guid id)
+        {
+            return (VaccineResponse)_repositoryVaccine.GetVaccineById(id);
+        }
+
+        public IEnumerable<VaccineResponse> ListVaccines()
+        {
+            return _repositoryVaccine.ListVaccines().ToList().Select(vaccine => (VaccineResponse)vaccine).ToList();
         }
     }
 }

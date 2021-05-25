@@ -9,4 +9,10 @@
     <Folder Include="Persistence\Repositories\" />
     <Folder Include="Persistence\Map\" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VaccineAPI5\VaccineAPI5.Domain.csproj" />
+  </ItemGroup>
 </Project>

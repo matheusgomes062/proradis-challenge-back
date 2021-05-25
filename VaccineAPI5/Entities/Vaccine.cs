@@ -14,6 +14,7 @@ namespace VaccineAPI5.Entities
             DueDate = dueDate;
             NumberOfDoses = numberOfDoses;
             IntervalBetweenDoses = intervalBetweenDoses;
+            Id = Guid.NewGuid();
 
             new AddNotifications<Vaccine>(this)
                 .IfNotDate(x => x.DueDate, "Informe uma data válida!")
