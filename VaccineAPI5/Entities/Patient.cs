@@ -1,6 +1,5 @@
 ﻿using System;
 using prmToolkit.NotificationPattern;
-using VaccineAPI5.ValueObjects;
 
 namespace VaccineAPI5.Entities
 {

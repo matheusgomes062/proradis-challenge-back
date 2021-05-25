@@ -3,7 +3,6 @@ using VaccineAPI5.Arguments.Patient;
 using VaccineAPI5.Domain.Interfaces.Repositories;
 using VaccineAPI5.Interfaces.Services;
 using VaccineAPI5.Entities;
-using VaccineAPI5.ValueObjects;
 using System.Collections.Generic;
 using VaccineAPI5.Domain.Arguments.Patient;
 using System.Linq;
@@ -30,6 +29,11 @@ namespace VaccineAPI5.Services
             patient = _repositoryPatient.AddPatient(patient);
 
             return (AddPatientResponse)patient;
+        }
+
+        public PatientResponse GetPatientById(Guid id)
+        {
+            return (PatientResponse)_repositoryPatient.GetPatientById(id);
         }
 
         public IEnumerable<PatientResponse> ListPatients()

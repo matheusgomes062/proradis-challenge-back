@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using VaccineAPI5.Arguments.Patient;
-using VaccineAPI5.Domain.Arguments.Patient;
 using VaccineAPI5.Entities;
 
 namespace VaccineAPI5.Domain.Interfaces.Repositories
@@ -10,6 +8,8 @@ namespace VaccineAPI5.Domain.Interfaces.Repositories
     {
         Patient AddPatient(Patient patient);
 
-        IEnumerable<PatientResponse> ListPatients();
+        IEnumerable<Patient> ListPatients();
+
+        Patient GetPatientById(Guid id);
     }
 }
