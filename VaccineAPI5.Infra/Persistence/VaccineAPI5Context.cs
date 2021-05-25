@@ -8,7 +8,7 @@ namespace VaccineAPI5.Infra.Persistence
 {
     public class VaccineAPI5Context : DbContext
     {
-        public VaccineAPI5Context() : base("VaccineAPI5ConnectionString")
+        public VaccineAPI5Context()
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;
